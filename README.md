@@ -2,7 +2,7 @@
 
 Laboratório de estudo do **Profissional 2030** (INEMA.CLUB, aberto e gratuito): uma empresa **fictícia** de 40 pessoas com **12 falhas de IA plantadas de propósito**, para treinar auditoria, consultoria e adoção segura de IA.
 
-Site: https://inematds.github.io/prof2030-lab/ · Programa: https://eventos.inema.pro/prof2030/
+Site: https://inematds.github.io/prof2030-lab/ · Programa: https://inematds.github.io/profissional-2030/
 
 > **Tudo aqui é falso e proposital.** Não há servidor, banco de dados nem dado real. Chaves (`FAKE-EXEMPLO`), CPFs (inválidos), telefones, pessoas e empresas são inventados. Site estático: HTML, CSS e JS puro, sem build.
 
