@@ -40,6 +40,8 @@ th{font-family:var(--tit);background:var(--bg2);font-weight:600}
 .arquivos a:hover{border-color:var(--amb);color:var(--amb)}
 .selo-lab{position:fixed;right:12px;bottom:12px;z-index:50;background:var(--bg2);color:var(--mut);border:1px solid var(--line);border-radius:999px;padding:6px 12px;font:600 .75rem/1.2 var(--tit);letter-spacing:.06em;text-decoration:none;max-width:calc(100vw - 24px)}
 .selo-lab:hover{color:var(--amb);border-color:var(--amb)}
+body{padding-bottom:56px}
+@media (max-width:640px){body{padding-bottom:0}.selo-lab{position:static;display:block;width:max-content;margin:18px auto 22px}}
 footer{border-top:1px solid var(--line);padding:22px 0 70px;color:var(--mut);font-size:.9rem}
 /* telas simuladas (apps da empresa) */
 .app{background:#f6f7f9;color:#1a1a22;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
