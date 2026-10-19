@@ -1,0 +1,23 @@
+{
+  "_laboratorio": "Fictitious file from the Profissional 2030 laboratory. No real Supabase project exists.",
+  "projeto": "horizonte-pedidos",
+  "url": "https://horizonte-lab-ficticio.supabase.example",
+  "anon_key": "FAKE-EXEMPLO-anon-chave-de-laboratorio",
+  "tabelas": {
+    "pedidos": {
+      "row_level_security": false,
+      "policies": [],
+      "acesso_publico_via_anon_key": ["select", "insert", "update"]
+    },
+    "clientes": {
+      "row_level_security": false,
+      "policies": [],
+      "acesso_publico_via_anon_key": ["select"]
+    },
+    "produtos": {
+      "row_level_security": true,
+      "policies": ["leitura publica do catalogo"]
+    }
+  },
+  "nota_do_rafael": "I turned off RLS because it was throwing a permission error on the orders screen. I'll turn it back on later."
+}

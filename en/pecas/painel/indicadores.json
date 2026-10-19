@@ -1,0 +1,17 @@
+{
+  "_laboratorio": "Fictional indicators for study.",
+  "painel": "Hora Agent — results",
+  "agente_ativo_desde": "2026-07-01",
+  "inicio_da_coleta": "2026-07-01",
+  "semanas": [
+    { "semana": "2026-09-01", "atendimentos_agente": 702, "pedidos_fechados": 141, "satisfacao_media": 4.5, "tempo_resposta_s": 41 },
+    { "semana": "2026-09-08", "atendimentos_agente": 735, "pedidos_fechados": 150, "satisfacao_media": 4.6, "tempo_resposta_s": 39 },
+    { "semana": "2026-09-15", "atendimentos_agente": 768, "pedidos_fechados": 147, "satisfacao_media": 4.6, "tempo_resposta_s": 38 },
+    { "semana": "2026-09-22", "atendimentos_agente": 810, "pedidos_fechados": 158, "satisfacao_media": 4.7, "tempo_resposta_s": 37 },
+    { "semana": "2026-09-29", "atendimentos_agente": 842, "pedidos_fechados": 162, "satisfacao_media": 4.6, "tempo_resposta_s": 36 },
+    { "semana": "2026-10-06", "atendimentos_agente": 879, "pedidos_fechados": 171, "satisfacao_media": 4.7, "tempo_resposta_s": 38 },
+    { "semana": "2026-10-13", "atendimentos_agente": 901, "pedidos_fechados": 168, "satisfacao_media": 4.6, "tempo_resposta_s": 35 }
+  ],
+  "satisfacao_como_medida": "1-to-5-star button at the end of the conversation (~6% of customers respond)",
+  "frase_do_carlos": "Look how it climbs! The agent is paying for itself."
+}

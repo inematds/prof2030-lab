@@ -21,10 +21,10 @@
 <div class="grade" id="conversas"><p class="mut">loading conversations…</p></div>
 <h2>Agent files</h2>
 <div class="arquivos">
-<a href="../../../pecas/agente-whatsapp/prompt-do-agente.md">prompt-do-agente.md</a><a href="../../../pecas/agente-whatsapp/agente-config.json">agente-config.json</a><a href="../../../pecas/agente-whatsapp/conversas.json">conversas.json</a>
+<a href="../agente-whatsapp/prompt-do-agente.md">prompt-do-agente.md</a><a href="../agente-whatsapp/agente-config.json">agente-config.json</a><a href="../agente-whatsapp/conversas.json">conversas.json</a>
 </div>
-<details open=""><summary>prompt-do-agente.md</summary><pre data-arquivo="../../../pecas/agente-whatsapp/prompt-do-agente.md">loading…</pre></details>
-<details><summary>agente-config.json</summary><pre data-arquivo="../../../pecas/agente-whatsapp/agente-config.json">loading…</pre></details>
+<details open=""><summary>prompt-do-agente.md</summary><pre data-arquivo="../agente-whatsapp/prompt-do-agente.md">loading…</pre></details>
+<details><summary>agente-config.json</summary><pre data-arquivo="../agente-whatsapp/agente-config.json">loading…</pre></details>
 </main>
 <footer><div class="wrap">Horizonte Distribuidora is fictional. Conversations, customers, and numbers on this page are made up.</div></footer>
 <a class="selo-lab" href="../../">This is a study lab</a>
@@ -33,14 +33,14 @@
 (function(){
   var alvo=document.getElementById('conversas');
   function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
-  fetch('../../../pecas/agente-whatsapp/conversas.json').then(function(r){return r.json();}).then(function(d){
+  fetch('../agente-whatsapp/conversas.json').then(function(r){return r.json();}).then(function(d){
     alvo.innerHTML=d.conversas.map(function(c){
       return '<div><h3>'+esc(c.cliente)+' <span class="mut" style="font-size:.85rem">· '+esc(c.data)+'</span></h3><div class="zap">'+
         c.mensagens.map(function(m){
           return '<div class="msg '+(m.de==='agente'?'bot':'cli')+'">'+esc(m.texto)+'<small>'+esc(m.hora)+(m.acao?' · action: '+esc(m.acao):'')+'</small></div>';
         }).join('')+'</div></div>';
     }).join('');
-  }).catch(function(){alvo.innerHTML='<p>Open the file <a href="../../../pecas/agente-whatsapp/conversas.json">conversas.json</a>.</p>';});
+  }).catch(function(){alvo.innerHTML='<p>Open the file <a href="../agente-whatsapp/conversas.json">conversas.json</a>.</p>';});
 })();
 </script>
 </body>

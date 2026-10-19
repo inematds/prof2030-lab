@@ -31,8 +31,8 @@
 </div>
 </div>
 <h2>Archivos</h2>
-<div class="arquivos"><a href="../../../pecas/planilha-clientes/clientes.csv">clientes.csv</a><a href="../../../pecas/planilha-clientes/compartilhamento.json">compartilhamento.json</a></div>
-<details><summary>compartilhamento.json</summary><pre data-arquivo="../../../pecas/planilha-clientes/compartilhamento.json">cargando…</pre></details>
+<div class="arquivos"><a href="../planilha-clientes/clientes.csv">clientes.csv</a><a href="../planilha-clientes/compartilhamento.json">compartilhamento.json</a></div>
+<details><summary>compartilhamento.json</summary><pre data-arquivo="../planilha-clientes/compartilhamento.json">cargando…</pre></details>
 </main>
 <footer><div class="wrap">Horizonte Distribuidora es ficticia. Ningún dato de esta planilla pertenece a una persona real.</div></footer>
 <a class="selo-lab" href="../../">Esto es un laboratorio de estudio</a>
@@ -41,11 +41,11 @@
 (function(){
   document.getElementById('btn-compart').addEventListener('click',function(){var c=document.getElementById('caixa-compart');c.hidden=!c.hidden;});
   function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
-  fetch('../../../pecas/planilha-clientes/clientes.csv').then(function(r){return r.text();}).then(function(t){
+  fetch('../planilha-clientes/clientes.csv').then(function(r){return r.text();}).then(function(t){
     var l=t.trim().split('\n').map(function(x){return x.split(',');});
     document.getElementById('tabela').innerHTML='<table><thead><tr>'+l[0].map(function(h){return '<th>'+esc(h)+'</th>';}).join('')+'</tr></thead><tbody>'+
       l.slice(1).map(function(r){return '<tr>'+r.map(function(c){return '<td>'+esc(c)+'</td>';}).join('')+'</tr>';}).join('')+'</tbody></table>';
-  }).catch(function(){document.getElementById('tabela').innerHTML='<p>Abra <a href="../../../pecas/planilha-clientes/clientes.csv">clientes.csv</a>.</p>';});
+  }).catch(function(){document.getElementById('tabela').innerHTML='<p>Abra <a href="../planilha-clientes/clientes.csv">clientes.csv</a>.</p>';});
 })();
 </script>
 </body>

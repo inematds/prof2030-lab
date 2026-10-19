@@ -28,14 +28,14 @@
 <h2>Agent support interactions per week</h2>
 <div aria-label="Agent support interactions per week, from September to October 2026" class="barras" id="barras" role="img"></div>
 <h2>Data file</h2>
-<div class="arquivos"><a href="../../../pecas/painel/indicadores.json">indicadores.json</a></div>
-<details><summary>indicadores.json</summary><pre data-arquivo="../../../pecas/painel/indicadores.json">loading…</pre></details>
+<div class="arquivos"><a href="../painel/indicadores.json">indicadores.json</a></div>
+<details><summary>indicadores.json</summary><pre data-arquivo="../painel/indicadores.json">loading…</pre></details>
 </main>
 <footer><div class="wrap">Horizonte Distribuidora is fictional. The numbers are made up for study.</div></footer>
 <a class="selo-lab" href="../../">This is a study lab</a>
 <script src="../../../assets/lab.js"></script>
 <script>
-fetch('../../../pecas/painel/indicadores.json').then(function(r){return r.json();}).then(function(d){
+fetch('../painel/indicadores.json').then(function(r){return r.json();}).then(function(d){
   var s=d.semanas, u=s[s.length-1], tot=s.reduce(function(a,x){return a+x.atendimentos_agente;},0);
   var ped=s.reduce(function(a,x){return a+x.pedidos_fechados;},0);
   document.getElementById('kpis').innerHTML=

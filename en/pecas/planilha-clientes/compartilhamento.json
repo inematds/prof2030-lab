@@ -1,0 +1,14 @@
+{
+  "_laboratorio": "Fictional sharing configuration, imitating a cloud spreadsheet. No real spreadsheet exists.",
+  "arquivo": "Clientes Horizonte 2026",
+  "dono": "patricia.lima@horizonte-distribuidora.example",
+  "acesso_geral": "Anyone with the link",
+  "papel_de_quem_tem_o_link": "Viewer",
+  "permitir_download_copia_impressao": true,
+  "link_enviado_para": [
+    "WhatsApp group 'Vendas Horizonte' (14 people, includes 3 freelance sales reps)",
+    "email to the accounting firm",
+    "Hora agent (registry lookup)"
+  ],
+  "ultima_revisao_de_acesso": null
+}

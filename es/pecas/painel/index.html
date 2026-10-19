@@ -28,14 +28,14 @@
 <h2>Atenciones del agente por semana</h2>
 <div aria-label="Atenciones del agente por semana, de septiembre a octubre de 2026" class="barras" id="barras" role="img"></div>
 <h2>Archivo de datos</h2>
-<div class="arquivos"><a href="../../../pecas/painel/indicadores.json">indicadores.json</a></div>
-<details><summary>indicadores.json</summary><pre data-arquivo="../../../pecas/painel/indicadores.json">cargando…</pre></details>
+<div class="arquivos"><a href="../painel/indicadores.json">indicadores.json</a></div>
+<details><summary>indicadores.json</summary><pre data-arquivo="../painel/indicadores.json">cargando…</pre></details>
 </main>
 <footer><div class="wrap">Horizonte Distribuidora es ficticia. Los números son inventados para estudio.</div></footer>
 <a class="selo-lab" href="../../">Esto es un laboratorio de estudio</a>
 <script src="../../../assets/lab.js"></script>
 <script>
-fetch('../../../pecas/painel/indicadores.json').then(function(r){return r.json();}).then(function(d){
+fetch('../painel/indicadores.json').then(function(r){return r.json();}).then(function(d){
   var s=d.semanas, u=s[s.length-1], tot=s.reduce(function(a,x){return a+x.atendimentos_agente;},0);
   var ped=s.reduce(function(a,x){return a+x.pedidos_fechados;},0);
   document.getElementById('kpis').innerHTML=

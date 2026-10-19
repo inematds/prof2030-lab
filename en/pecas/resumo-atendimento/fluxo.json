@@ -1,0 +1,31 @@
+{
+  "_laboratorio": "Fictional automation flow for study purposes. The 'ResumeFast AI' service and the address below do not exist.",
+  "nome": "Daily customer service summary",
+  "criado_por": "Rafael",
+  "gatilho": { "tipo": "agendado", "quando": "every day 18:00" },
+  "passos": [
+    {
+      "n": 1,
+      "acao": "buscar_conversas",
+      "origem": "WhatsApp (Hora agent + human support)",
+      "campos": ["nome_cliente", "telefone", "cpf_se_informado", "endereco_entrega", "texto_completo_da_conversa", "audios_transcritos"]
+    },
+    {
+      "n": 2,
+      "acao": "enviar_para_resumo",
+      "servico": "ResumeFast AI (free plan)",
+      "endpoint": "https://api.resumefast-ficticio.invalid/v1/summarize",
+      "pais_do_servidor": "outside Brazil (not stated on the vendor's website)",
+      "contrato_assinado": false,
+      "termos_de_uso": "accepted at sign-up: the vendor may use the submitted data to improve its models",
+      "anonimizar_antes": false
+    },
+    {
+      "n": 3,
+      "acao": "enviar_resumo",
+      "destino": "Juliana's e-mail and the WhatsApp group 'Atendimento'"
+    }
+  ],
+  "aviso_aos_clientes": null,
+  "registrado_no_inventario_de_ti": false
+}

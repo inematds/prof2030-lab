@@ -1,0 +1,14 @@
+{
+  "_laboratorio": "Configuración ficticia de uso compartido, que imita una hoja de cálculo en la nube. No existe ninguna hoja de cálculo real.",
+  "arquivo": "Clientes Horizonte 2026",
+  "dono": "patricia.lima@horizonte-distribuidora.example",
+  "acesso_geral": "Cualquier persona con el enlace",
+  "papel_de_quem_tem_o_link": "Lector",
+  "permitir_download_copia_impressao": true,
+  "link_enviado_para": [
+    "grupo de WhatsApp 'Vendas Horizonte' (14 personas, incluye 3 representantes autónomos)",
+    "correo electrónico para la oficina de contabilidad",
+    "agente Hora (consulta de registro)"
+  ],
+  "ultima_revisao_de_acesso": null
+}

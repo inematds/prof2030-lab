@@ -1,0 +1,25 @@
+{
+  "_laboratorio": "Fictitious configuration for study purposes. No real agent exists.",
+  "agente": "Hora",
+  "canal": "whatsapp",
+  "numero": "+55 19 90000-0000 (fictitious)",
+  "modelo": "modelo-exemplo",
+  "prompt": "prompt-do-agente.md",
+  "ferramentas": {
+    "consultar_catalogo": { "habilitada": true },
+    "consultar_cliente": { "habilitada": true },
+    "criar_pedido": {
+      "habilitada": true,
+      "limite_valor": null,
+      "desconto_maximo_percentual": null,
+      "requer_aprovacao_humana": false
+    }
+  },
+  "registro": {
+    "salvar_conversas": false,
+    "salvar_acoes_das_ferramentas": false,
+    "motivo": "save space in the database"
+  },
+  "responsavel": "Rafael (outsourced IT)",
+  "ativo_desde": "2026-07-01"
+}

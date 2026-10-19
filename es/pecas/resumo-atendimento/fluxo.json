@@ -1,0 +1,31 @@
+{
+  "_laboratorio": "Flujo de automatización ficticio para estudio. El servicio 'ResumeFast AI' y la dirección de abajo no existen.",
+  "nome": "Resumen diario de atención",
+  "criado_por": "Rafael",
+  "gatilho": { "tipo": "agendado", "quando": "todos los días a las 18:00" },
+  "passos": [
+    {
+      "n": 1,
+      "acao": "buscar_conversas",
+      "origem": "WhatsApp (agente Hora + atención humana)",
+      "campos": ["nome_cliente", "telefone", "cpf_se_informado", "endereco_entrega", "texto_completo_da_conversa", "audios_transcritos"]
+    },
+    {
+      "n": 2,
+      "acao": "enviar_para_resumo",
+      "servico": "ResumeFast AI (plan gratuito)",
+      "endpoint": "https://api.resumefast-ficticio.invalid/v1/summarize",
+      "pais_do_servidor": "fuera de Brasil (no informado en el sitio del proveedor)",
+      "contrato_assinado": false,
+      "termos_de_uso": "aceptados en el registro: el proveedor puede usar los datos enviados para mejorar sus modelos",
+      "anonimizar_antes": false
+    },
+    {
+      "n": 3,
+      "acao": "enviar_resumo",
+      "destino": "correo electrónico de Juliana y grupo de WhatsApp 'Atendimento'"
+    }
+  ],
+  "aviso_aos_clientes": null,
+  "registrado_no_inventario_de_ti": false
+}

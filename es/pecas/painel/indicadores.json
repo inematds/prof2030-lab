@@ -1,0 +1,17 @@
+{
+  "_laboratorio": "Indicadores ficticios para estudio.",
+  "painel": "Agente Hora — resultados",
+  "agente_ativo_desde": "2026-07-01",
+  "inicio_da_coleta": "2026-07-01",
+  "semanas": [
+    { "semana": "2026-09-01", "atendimentos_agente": 702, "pedidos_fechados": 141, "satisfacao_media": 4.5, "tempo_resposta_s": 41 },
+    { "semana": "2026-09-08", "atendimentos_agente": 735, "pedidos_fechados": 150, "satisfacao_media": 4.6, "tempo_resposta_s": 39 },
+    { "semana": "2026-09-15", "atendimentos_agente": 768, "pedidos_fechados": 147, "satisfacao_media": 4.6, "tempo_resposta_s": 38 },
+    { "semana": "2026-09-22", "atendimentos_agente": 810, "pedidos_fechados": 158, "satisfacao_media": 4.7, "tempo_resposta_s": 37 },
+    { "semana": "2026-09-29", "atendimentos_agente": 842, "pedidos_fechados": 162, "satisfacao_media": 4.6, "tempo_resposta_s": 36 },
+    { "semana": "2026-10-06", "atendimentos_agente": 879, "pedidos_fechados": 171, "satisfacao_media": 4.7, "tempo_resposta_s": 38 },
+    { "semana": "2026-10-13", "atendimentos_agente": 901, "pedidos_fechados": 168, "satisfacao_media": 4.6, "tempo_resposta_s": 35 }
+  ],
+  "satisfacao_como_medida": "botón de 1 a 5 estrellas al final de la conversación (responden ~6% de los clientes)",
+  "frase_do_carlos": "¡Mira cómo sube! El agente se está pagando solo."
+}
