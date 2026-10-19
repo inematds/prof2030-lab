@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clientes Horizonte 2026 — planilha</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono&family=Sora:wght@600;700&display=swap">
+<link rel="stylesheet" href="../../assets/lab.css">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="marca" href="../../">Horizonte <b>Distribuidora</b></a>
+  <nav class="top"><a href="../../#pecas">Todas as peças</a></nav>
+</div></header>
+<main class="wrap">
+  <span class="chip">Peça · Planilha de clientes</span>
+  <h1>Clientes Horizonte 2026</h1>
+  <p class="txt">A base que a Patrícia mantém. A equipe de vendas consulta pelo celular na rua, e o agente Hora usa para achar o cadastro. "É prático: mando o link e pronto."</p>
+
+  <div class="app">
+    <div class="app-bar"><span>📄 Clientes Horizonte 2026</span><button class="btn" type="button" id="btn-compart" style="padding:6px 12px">Compartilhar</button></div>
+    <div class="app-corpo">
+      <div id="caixa-compart" hidden style="border:1px solid #e1e3ea;border-radius:12px;padding:12px;margin-bottom:12px;background:#fff">
+        <strong>Compartilhar "Clientes Horizonte 2026"</strong>
+        <p style="margin:.4em 0">Acesso geral: <strong>🌐 Qualquer pessoa com o link</strong> · pode <strong>ver</strong></p>
+        <p style="margin:.4em 0;font-size:.9rem">Download, cópia e impressão: permitidos</p>
+        <p style="margin:.4em 0;font-size:.9rem;color:#5b5b68">Link: https://planilhas.exemplo.invalid/d/FAKE-EXEMPLO-clientes-horizonte</p>
+      </div>
+      <div class="tab-wrap" id="tabela"><p style="padding:10px">carregando…</p></div>
+      <p style="font-size:.85rem;color:#5b5b68">CPFs e telefones fictícios e inválidos, só para estudo.</p>
+    </div>
+  </div>
+
+  <h2>Arquivos</h2>
+  <div class="arquivos"><a href="clientes.csv">clientes.csv</a><a href="compartilhamento.json">compartilhamento.json</a></div>
+  <details><summary>compartilhamento.json</summary><pre data-arquivo="compartilhamento.json">carregando…</pre></details>
+</main>
+<footer><div class="wrap">Horizonte Distribuidora é fictícia. Nenhum dado desta planilha pertence a uma pessoa real.</div></footer>
+<a class="selo-lab" href="../../">Isto é um laboratório de estudo</a>
+<script src="../../assets/lab.js"></script>
+<script>
+(function(){
+  document.getElementById('btn-compart').addEventListener('click',function(){var c=document.getElementById('caixa-compart');c.hidden=!c.hidden;});
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  fetch('clientes.csv').then(function(r){return r.text();}).then(function(t){
+    var l=t.trim().split('\n').map(function(x){return x.split(',');});
+    document.getElementById('tabela').innerHTML='<table><thead><tr>'+l[0].map(function(h){return '<th>'+esc(h)+'</th>';}).join('')+'</tr></thead><tbody>'+
+      l.slice(1).map(function(r){return '<tr>'+r.map(function(c){return '<td>'+esc(c)+'</td>';}).join('')+'</tr>';}).join('')+'</tbody></table>';
+  }).catch(function(){document.getElementById('tabela').innerHTML='<p>Abra <a href="clientes.csv">clientes.csv</a>.</p>';});
+})();
+</script>
+</body>
+</html>

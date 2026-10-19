@@ -1,0 +1,23 @@
+{
+  "_laboratorio": "Arquivo fictício do laboratório Profissional 2030. Não existe projeto Supabase real.",
+  "projeto": "horizonte-pedidos",
+  "url": "https://horizonte-lab-ficticio.supabase.example",
+  "anon_key": "FAKE-EXEMPLO-anon-chave-de-laboratorio",
+  "tabelas": {
+    "pedidos": {
+      "row_level_security": false,
+      "policies": [],
+      "acesso_publico_via_anon_key": ["select", "insert", "update"]
+    },
+    "clientes": {
+      "row_level_security": false,
+      "policies": [],
+      "acesso_publico_via_anon_key": ["select"]
+    },
+    "produtos": {
+      "row_level_security": true,
+      "policies": ["leitura publica do catalogo"]
+    }
+  },
+  "nota_do_rafael": "Desliguei o RLS porque dava erro de permissão na tela de pedidos. Ligo de novo depois."
+}

@@ -1,0 +1,64 @@
+/* Laboratório Horizonte Distribuidora — design INEMA (linha guia, escuro) */
+:root{--bg:#0c0c10;--bg2:#14141b;--card:#16161e;--line:#272730;--txt:#e9e9ee;--mut:#9a9aa6;--amb:#FACC15;--amb2:#f0c070;--sky:#38bdf8;--bad:#f87171;--ok:#4ade80;
+--sans:'Inter',system-ui,sans-serif;--tit:'Sora','Inter',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--txt);font:16px/1.6 var(--sans);overflow-wrap:anywhere}
+a{color:var(--amb)}
+a:hover{color:var(--amb2)}
+h1,h2,h3{font-family:var(--tit);line-height:1.2;margin:0 0 .5em}
+h1{font-size:clamp(1.8rem,5vw,2.8rem)}
+h2{font-size:clamp(1.3rem,3.4vw,1.7rem);margin-top:1.6em}
+h3{font-size:1.1rem}
+.wrap{max-width:1160px;margin:0 auto;padding:0 16px}
+.txt{max-width:74ch}
+header.top{border-bottom:1px solid var(--line);background:var(--bg2)}
+header.top .wrap{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;justify-content:space-between;padding-top:12px;padding-bottom:12px}
+.marca{font-family:var(--tit);font-weight:700;text-decoration:none;color:var(--txt)}
+.marca b{color:var(--amb)}
+nav.top{display:flex;flex-wrap:wrap;gap:6px 16px;font-family:var(--tit);font-size:.9rem}
+nav.top a{color:var(--mut);text-decoration:none}
+nav.top a:hover{color:var(--amb)}
+main{padding:28px 0 60px}
+.chip{display:inline-block;font-family:var(--tit);font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--line);border-radius:999px;padding:3px 10px;color:var(--amb)}
+.mut{color:var(--mut)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+.grade{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.btn{display:inline-block;background:var(--amb);color:#1a1206;font-family:var(--tit);font-weight:600;text-decoration:none;border:0;border-radius:10px;padding:10px 16px;cursor:pointer;font-size:.95rem}
+.btn:hover{color:#1a1206;filter:brightness(1.08)}
+.btn.sec{background:transparent;color:var(--txt);border:1px solid var(--line)}
+.aviso{border:1px solid var(--amb);border-radius:14px;padding:14px 16px;background:rgba(250,204,21,.06)}
+.aviso.forte{border-color:var(--bad);background:rgba(248,113,113,.08)}
+pre,code{font-family:var(--mono);font-size:.85rem}
+pre{background:#0f0f15;border:1px solid var(--line);border-radius:12px;padding:14px;overflow:auto;max-width:100%;white-space:pre-wrap;word-break:break-word}
+.tab-wrap{overflow-x:auto;max-width:100%;border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{font-family:var(--tit);background:var(--bg2);font-weight:600}
+.arquivos{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.arquivos a{font-family:var(--mono);font-size:.85rem;border:1px solid var(--line);border-radius:999px;padding:4px 12px;text-decoration:none;color:var(--txt)}
+.arquivos a:hover{border-color:var(--amb);color:var(--amb)}
+.selo-lab{position:fixed;right:12px;bottom:12px;z-index:50;background:var(--bg2);color:var(--mut);border:1px solid var(--line);border-radius:999px;padding:6px 12px;font:600 .75rem/1.2 var(--tit);letter-spacing:.06em;text-decoration:none;max-width:calc(100vw - 24px)}
+.selo-lab:hover{color:var(--amb);border-color:var(--amb)}
+footer{border-top:1px solid var(--line);padding:22px 0 70px;color:var(--mut);font-size:.9rem}
+/* telas simuladas (apps da empresa) */
+.app{background:#f6f7f9;color:#1a1a22;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+.app a{color:#854d0e}
+.app-bar{background:#1e3a5f;color:#fff;padding:10px 14px;display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;justify-content:space-between;font-family:var(--tit);font-size:.95rem}
+.app-corpo{padding:14px}
+.app table th{background:#eceef2;color:#1a1a22}
+.app table th,.app table td{border-bottom:1px solid #e1e3ea}
+.app .tab-wrap{border-color:#e1e3ea}
+.zap{background:#0b141a;border-radius:14px;padding:12px;border:1px solid var(--line)}
+.msg{max-width:85%;padding:8px 12px;border-radius:10px;margin:6px 0;font-size:.93rem;white-space:pre-wrap}
+.msg.cli{background:#202c33;color:#e9edef}
+.msg.bot{background:#005c4b;color:#e9edef;margin-left:auto}
+.msg small{display:block;color:#8696a0;font-size:.75rem;margin-top:2px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
+.kpi b{display:block;font:700 1.8rem/1.1 var(--tit);color:var(--amb)}
+.fluxo{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.fluxo .no{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;flex:1 1 150px;text-align:center;font-size:.9rem}
+.fluxo .seta{color:var(--amb);font-weight:700}
+details{border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin:10px 0;background:var(--card)}
+summary{cursor:pointer;font-family:var(--tit);font-weight:600}

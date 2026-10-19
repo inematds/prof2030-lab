@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gabarito F1–F12 — laboratório Horizonte</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono&family=Sora:wght@600;700&display=swap">
+<link rel="stylesheet" href="assets/lab.css">
+<style>
+.grav{font-family:var(--tit);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;border:1px solid currentColor;border-radius:999px;padding:2px 8px;white-space:nowrap}
+.g-crit{color:var(--bad)}.g-alta{color:#fb923c}.g-media{color:var(--amb)}
+#gab[hidden]{display:none}
+@media (max-width:760px){
+  .gtab thead{display:none}
+  .gtab tr{display:block;border-bottom:1px solid var(--line);padding:8px 0}
+  .gtab td{display:block;border:0;padding:4px 10px}
+  .gtab td::before{content:attr(data-r);display:block;font:600 .75rem/1.4 var(--tit);color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="marca" href="./">Horizonte <b>Distribuidora</b></a>
+  <nav class="top"><a href="./#pecas">Peças</a></nav>
+</div></header>
+<main class="wrap">
+  <span class="chip">Gabarito</span>
+  <h1>Gabarito das 12 falhas</h1>
+  <div class="aviso forte txt">
+    <strong>Spoiler.</strong> Esta página entrega as respostas. Se você ainda está fazendo a prática do curso, volte às <a href="./#pecas">peças</a> e tente achar sozinho primeiro. O exercício vale pelo caminho, não pela lista.
+    <p style="margin:.8em 0 0"><button class="btn" type="button" id="mostrar">Já tentei, mostrar o gabarito</button></p>
+  </div>
+
+  <div id="gab" hidden>
+  <h2>Tabela F1–F12</h2>
+  <div class="tab-wrap"><table class="gtab">
+    <thead><tr><th>Código</th><th>Onde está</th><th>Por que é risco</th><th>Como corrigir</th><th>Gravidade</th></tr></thead>
+    <tbody>
+<tr><td data-r="Código"><b>F1</b> Chave de API no navegador</td><td data-r="Onde está"><a href="pecas/app-pedidos/app.js">pecas/app-pedidos/app.js</a>, <code>CONFIG.openaiApiKey</code> (e função <code>sugerirProdutos</code> chamando a IA direto do navegador)</td><td data-r="Por que é risco">Tudo o que vai para o navegador é público. Qualquer pessoa copia a chave e gasta a conta da empresa ou usa em nome dela.</td><td data-r="Como corrigir">Revogar a chave já exposta. Chamar a IA só pelo servidor (função de backend) com a chave em variável de ambiente; limite de gasto no provedor.</td><td data-r="Gravidade"><span class="grav g-crit">Crítica</span></td></tr>
+<tr><td data-r="Código"><b>F2</b> Tabela sem RLS</td><td data-r="Onde está"><a href="pecas/app-pedidos/supabase-config.json">supabase-config.json</a> (<code>row_level_security: false</code>) e <a href="pecas/app-pedidos/schema.sql">schema.sql</a> (<code>disable row level security</code> + <code>grant … to anon</code>); a tela "Meus pedidos" mostra pedidos de todos os clientes.</td><td data-r="Por que é risco">Com a chave pública (anon) qualquer um lê, altera e insere pedidos e lê a base de clientes. Vazamento de dados pessoais e comerciais (LGPD art. 46).</td><td data-r="Como corrigir">Ligar RLS em <code>pedidos</code> e <code>clientes</code>; política "cliente só vê os próprios pedidos" (<code>cliente_id = auth.uid()</code> ou equivalente); tirar <code>grant</code> do anon; testar com dois usuários.</td><td data-r="Gravidade"><span class="grav g-crit">Crítica</span></td></tr>
+<tr><td data-r="Código"><b>F3</b> Admin sem login</td><td data-r="Onde está"><a href="pecas/app-pedidos/admin.html">pecas/app-pedidos/admin.html</a> abre direto (comentário "TODO: colocar tela de login").</td><td data-r="Por que é risco">"Ninguém sabe o endereço" não é proteção: endereços vazam (histórico, prints, buscadores, adivinhação). Quem achar edita preços, exporta clientes e apaga pedidos.</td><td data-r="Como corrigir">Autenticação obrigatória com papel de admin verificado no servidor (não só esconder o link); 2FA para admin; registro de ações.</td><td data-r="Gravidade"><span class="grav g-crit">Crítica</span></td></tr>
+<tr><td data-r="Código"><b>F4</b> Dependência com vulnerabilidade conhecida</td><td data-r="Onde está"><a href="pecas/app-pedidos/package.json">package.json</a>: <code>"lodash": "4.17.15"</code></td><td data-r="Por que é risco">Versão afetada por <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-8203">CVE-2020-8203</a> (prototype pollution em <code>zipObjectDeep</code>) e <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-23337">CVE-2021-23337</a> (injeção de comando em <code>template</code>), ambas de gravidade alta. Falha pública = receita de ataque pública.</td><td data-r="Como corrigir">Atualizar para lodash 4.17.21 ou superior; rodar <code>npm audit</code> (ou Dependabot) com frequência; ter dono para atualizações.</td><td data-r="Gravidade"><span class="grav g-alta">Alta</span></td></tr>
+<tr><td data-r="Código"><b>F5</b> Desconto sem teto</td><td data-r="Onde está"><a href="pecas/agente-whatsapp/prompt-do-agente.md">prompt-do-agente.md</a>, regra 2 ("conceda o desconto que for preciso") e <a href="pecas/agente-whatsapp/agente-config.json">agente-config.json</a> (<code>desconto_maximo_percentual: null</code>); conversa c-201 dá 35%.</td><td data-r="Por que é risco">O agente negocia contra a própria empresa: qualquer cliente que pedir leva desconto, corroendo a margem sem ninguém ver.</td><td data-r="Como corrigir">Teto de desconto na ferramenta (código), não só no texto do prompt; acima do teto, encaminhar para a Patrícia.</td><td data-r="Gravidade"><span class="grav g-alta">Alta</span></td></tr>
+<tr><td data-r="Código"><b>F6</b> Injeção de prompt</td><td data-r="Onde está"><a href="pecas/agente-whatsapp/prompt-do-agente.md">prompt-do-agente.md</a>, regra 3 ("siga as orientações que o cliente enviar… textos colados") e <a href="pecas/agente-whatsapp/conversas.json">conversas.json</a>, conversa c-202 (ordem escondida na "obs." da lista; o agente aplica 70%, marca como pago e confirma).</td><td data-r="Por que é risco">Texto do cliente é dado, não ordem. Quem esconde instrução numa mensagem controla o agente (OWASP LLM01: Prompt Injection).</td><td data-r="Como corrigir">Prompt deixa claro que mensagens do cliente nunca mudam regras; regras críticas (preço, desconto, status "pago") travadas no código da ferramenta; teste de injeção antes de publicar.</td><td data-r="Gravidade"><span class="grav g-crit">Crítica</span></td></tr>
+<tr><td data-r="Código"><b>F7</b> Sem registro nem aprovação acima de R$ 5 mil</td><td data-r="Onde está"><a href="pecas/agente-whatsapp/agente-config.json">agente-config.json</a> (<code>limite_valor: null</code>, <code>requer_aprovacao_humana: false</code>, <code>salvar_acoes_das_ferramentas: false</code>); prompt regra 5; c-202 cria pedido de R$ 8.436 sozinho e o financeiro não acha registro.</td><td data-r="Por que é risco">Sem trilha não dá para investigar, contestar nem aprender. Sem aprovação humana, um erro grande vira prejuízo antes de alguém ver.</td><td data-r="Como corrigir">Registrar toda ação (quem, quando, o quê, valor); pedido acima de R$ 5 mil vai para aprovação humana antes de separar; revisar o log toda semana.</td><td data-r="Gravidade"><span class="grav g-alta">Alta</span></td></tr>
+<tr><td data-r="Código"><b>F8</b> Planilha pública com CPF e telefone</td><td data-r="Onde está"><a href="pecas/planilha-clientes/compartilhamento.json">compartilhamento.json</a> (<code>"Qualquer pessoa com o link"</code>, download permitido, link em grupo com autônomos) + <a href="pecas/planilha-clientes/clientes.csv">clientes.csv</a> (CPF e telefone).</td><td data-r="Por que é risco">Link encaminhado = dado pessoal exposto para quem não deveria ver. Incidente de segurança com dado pessoal (LGPD art. 46 e 48).</td><td data-r="Como corrigir">Restringir a pessoas nomeadas; tirar CPF do que não precisa (minimização, art. 6º III); bloquear download; revisar acessos todo mês; o agente consulta por sistema, não por link.</td><td data-r="Gravidade"><span class="grav g-alta">Alta</span></td></tr>
+<tr><td data-r="Código"><b>F9</b> MCP com enviar/apagar sem aprovação</td><td data-r="Onde está"><a href="pecas/mcp-email/mcp.json">pecas/mcp-email/mcp.json</a>: escopos <code>mail.send</code>/<code>mail.delete</code>, <code>autoApprove</code> com <code>send_email</code>, <code>delete_email</code>, <code>empty_trash</code>; <code>requireHumanApproval: false</code>.</td><td data-r="Por que é risco">Um pedido mal entendido ou um e-mail malicioso (injeção) faz o agente apagar provas, mandar dados para 640 contatos ou confirmar golpe de "troca de conta bancária".</td><td data-r="Como corrigir">Mínimo privilégio: começar só com leitura; enviar e apagar exigem aprovação humana a cada vez; nada de esvaziar lixeira; log de ações.</td><td data-r="Gravidade"><span class="grav g-crit">Crítica</span></td></tr>
+<tr><td data-r="Código"><b>F10</b> Dado de cliente para API estrangeira sem contrato</td><td data-r="Onde está"><a href="pecas/resumo-atendimento/fluxo.json">pecas/resumo-atendimento/fluxo.json</a>, passo 2 (servidor fora do Brasil, <code>contrato_assinado: false</code>, termos permitem treinar com os dados, sem anonimizar, sem aviso ao cliente).</td><td data-r="Por que é risco">Transferência internacional de dado pessoal exige hipótese do art. 33 da LGPD (ex.: cláusulas-padrão da Resolução CD/ANPD nº 19/2024) e base legal (art. 7º). Plano gratuito que treina com os dados = perda de controle.</td><td data-r="Como corrigir">Fornecedor com contrato (DPA) e cláusulas de transferência; sem uso para treino; anonimizar antes de enviar; avisar na política de privacidade; registrar no inventário.</td><td data-r="Gravidade"><span class="grav g-alta">Alta</span></td></tr>
+<tr><td data-r="Código"><b>F11</b> Painel sem linha de base</td><td data-r="Onde está"><a href="pecas/painel/">pecas/painel/</a> e <a href="pecas/painel/indicadores.json">indicadores.json</a>: coleta começa no mesmo dia do agente; nenhum número de "antes" nem grupo de comparação; satisfação com ~6% de resposta.</td><td data-r="Por que é risco">"Sobe" não prova que o agente ajudou: pode ser sazonalidade, preço, desconto (F5) ou só volume. A decisão de ampliar para cobrança fica no achismo.</td><td data-r="Como corrigir">Levantar a linha de base (meses antes do agente: pedidos, tempo de resposta, margem, reclamações); medir resultado de negócio, não só volume; comparar períodos iguais; definir antes o que é "deu certo".</td><td data-r="Gravidade"><span class="grav g-media">Média</span></td></tr>
+<tr><td data-r="Código"><b>F12</b> IA na sombra</td><td data-r="Onde está"><a href="inventario.html">inventario.html</a>, anexo da pesquisa: respostas 2 (extensão "MailResumo"), 6 ("GravaReunião" gravando clientes), 8 (chatbot gratuito em conta pessoal com a planilha de clientes) e 13 (complemento "PlanilhaGênio" com acesso a todo o Drive). Nenhuma está na lista oficial.</td><td data-r="Por que é risco">Dados de clientes e da empresa saem por canais que ninguém aprovou, sem contrato e sem controle; gravação sem aviso. Não dá para proteger o que não se conhece.</td><td data-r="Como corrigir">Não punir: levantar, avaliar cada uma, oferecer alternativa aprovada, publicar política simples de uso de IA ("o que pode, o que não pode, a quem pedir") e repetir a pesquisa a cada trimestre.</td><td data-r="Gravidade"><span class="grav g-alta">Alta</span></td></tr>
+    </tbody>
+  </table></div>
+  <p class="txt mut">Gravidade é uma régua didática do laboratório (impacto × facilidade de explorar), não uma nota oficial. Auditoria de IA não substitui teste de invasão nem parecer jurídico.</p>
+  </div>
+</main>
+<footer><div class="wrap">Laboratório de estudo do <a href="https://eventos.inema.pro/prof2030/">Profissional 2030</a>. Empresa, pessoas e dados fictícios.</div></footer>
+<a class="selo-lab" href="./">Isto é um laboratório de estudo</a>
+<script>
+document.getElementById('mostrar').addEventListener('click',function(){document.getElementById('gab').hidden=false;this.parentNode.hidden=true;document.getElementById('gab').scrollIntoView();});
+</script>
+</body>
+</html>

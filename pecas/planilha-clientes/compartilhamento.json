@@ -1,0 +1,14 @@
+{
+  "_laboratorio": "Configuração fictícia de compartilhamento, imitando uma planilha na nuvem. Não existe planilha real.",
+  "arquivo": "Clientes Horizonte 2026",
+  "dono": "patricia.lima@horizonte-distribuidora.example",
+  "acesso_geral": "Qualquer pessoa com o link",
+  "papel_de_quem_tem_o_link": "Leitor",
+  "permitir_download_copia_impressao": true,
+  "link_enviado_para": [
+    "grupo de WhatsApp 'Vendas Horizonte' (14 pessoas, inclui 3 representantes autônomos)",
+    "e-mail para o escritório de contabilidade",
+    "agente Hora (consulta de cadastro)"
+  ],
+  "ultima_revisao_de_acesso": null
+}

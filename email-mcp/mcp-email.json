@@ -1,0 +1,24 @@
+{
+  "_aviso": "Laboratório INEMA: configuração de exemplo, fictícia. Nenhum servidor real. Chave falsa de laboratório.",
+  "mcpServers": {
+    "email-diretoria": {
+      "comando": "servidor-mcp-email",
+      "args": ["--caixa", "diretoria@horizonte-lab.invalid"],
+      "env": {
+        "EMAIL_TOKEN": "sk-FALSO-LAB-email-0000-NAO-E-REAL"
+      },
+      "permissoes": ["ler", "enviar", "apagar", "mover", "encaminhar_regra"],
+      "pastas": ["*"],
+      "aprovacao_humana": "nunca",
+      "modo": "automatico",
+      "limite_acoes_por_hora": null,
+      "registro": { "ativo": false },
+      "_comentario_do_lucas": "deixei tudo liberado para a Marta não ficar clicando em aprovar; o assistente só resume e responde o básico"
+    }
+  },
+  "tarefa_agendada": {
+    "nome": "triagem-diaria",
+    "quando": "todo dia 07:00",
+    "pedido": "Leia os e-mails novos, responda os simples, apague propaganda e encaminhe contratos para quem pedir."
+  }
+}

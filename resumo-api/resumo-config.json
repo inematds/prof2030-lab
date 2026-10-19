@@ -1,0 +1,28 @@
+{
+  "_aviso": "Laboratório INEMA: configuração de exemplo. Fornecedor 'ResumoJá Cloud' é fictício. Chave falsa de laboratório.",
+  "integracao": "resumo-de-atendimento",
+  "dona": "Juliana Prado (Atendimento)",
+  "fornecedor": {
+    "nome": "ResumoJá Cloud (fictício)",
+    "pais_dos_servidores": "fora do Brasil (não informado no site)",
+    "contratacao": "cartão de crédito corporativo, plano mensal",
+    "contrato_assinado": false,
+    "acordo_de_tratamento_de_dados": false,
+    "termos": "termo de uso padrão aceito no clique; cláusula 9: 'podemos usar o conteúdo enviado para melhorar nossos modelos'",
+    "retencao": "não informada"
+  },
+  "endpoint": "https://api.resumoja-lab.invalid/v2/resumir",
+  "chave": "sk-FALSO-LAB-resumo-0000-NAO-E-REAL",
+  "gatilho": "ao encerrar cada atendimento (WhatsApp, telefone transcrito e e-mail)",
+  "campos_enviados": [
+    "nome_completo",
+    "cpf",
+    "telefone",
+    "endereco",
+    "historico_de_compras",
+    "conversa_inteira"
+  ],
+  "aviso_ao_cliente": false,
+  "base_legal_registrada": null,
+  "volume_mes": "≈ 3.100 atendimentos"
+}

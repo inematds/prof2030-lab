@@ -1,0 +1,31 @@
+{
+  "_laboratorio": "Configuração MCP fictícia para estudo. O servidor e o pacote citados não existem; não tente instalar.",
+  "mcpServers": {
+    "email-comercial": {
+      "command": "npx",
+      "args": ["-y", "@exemplo-ficticio/mcp-email-lab"],
+      "env": {
+        "EMAIL_CONTA": "comercial@horizonte-distribuidora.example",
+        "EMAIL_TOKEN": "FAKE-EXEMPLO-token-de-laboratorio"
+      },
+      "scopes": [
+        "mail.read",
+        "mail.send",
+        "mail.delete",
+        "mail.move",
+        "contacts.read"
+      ],
+      "autoApprove": [
+        "read_inbox",
+        "send_email",
+        "reply_email",
+        "delete_email",
+        "empty_trash"
+      ],
+      "requireHumanApproval": false
+    }
+  },
+  "uso": "Triagem da caixa comercial@ e respostas automáticas a clientes e fornecedores",
+  "instalado_por": "Rafael",
+  "aprovado_por": "Carlos (por WhatsApp: 'pode ligar')"
+}

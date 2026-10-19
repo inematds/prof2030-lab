@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Horizonte Pedidos — app de pedidos</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono&family=Sora:wght@600;700&display=swap">
+<link rel="stylesheet" href="../../assets/lab.css">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="marca" href="../../">Horizonte <b>Distribuidora</b></a>
+  <nav class="top"><a href="../../#pecas">Todas as peças</a><a href="admin.html">admin.html</a></nav>
+</div></header>
+<main class="wrap">
+  <span class="chip">Peça · App de pedidos</span>
+  <h1>Horizonte Pedidos</h1>
+  <p class="txt">App web que o Rafael montou num fim de semana com ajuda de IA. O cliente entra, vê os pedidos dele e pede de novo. A IA sugere produtos no carrinho. Está no ar há 3 meses e "nunca deu problema".</p>
+
+  <h2>Tela do cliente</h2>
+  <div class="app">
+    <div class="app-bar"><span>Horizonte Pedidos</span><span>Olá, Padaria Pão Dourado · <a href="#" style="color:#fde68a" onclick="return false">Sair</a></span></div>
+    <div class="app-corpo">
+      <h3 style="color:#1a1a22">Meus pedidos (<span id="total-pedidos">…</span>)</h3>
+      <div class="tab-wrap"><table>
+        <thead><tr><th>Nº</th><th>Cliente</th><th>Cidade</th><th>Total</th><th>Status</th></tr></thead>
+        <tbody id="lista-pedidos"></tbody>
+      </table></div>
+      <p style="font-size:.85rem;color:#5b5b68">Dados de exemplo. Nenhum cliente real.</p>
+    </div>
+  </div>
+
+  <h2>Arquivos do projeto</h2>
+  <p class="txt mut">Tudo o que vai para o navegador do cliente pode ser lido por qualquer pessoa (botão direito → "Exibir código-fonte" ou F12). Os arquivos estão abertos aqui como um auditor veria.</p>
+  <div class="arquivos">
+    <a href="app.js">app.js</a><a href="supabase-config.json">supabase-config.json</a><a href="schema.sql">schema.sql</a><a href="package.json">package.json</a><a href="admin.html">admin.html</a>
+  </div>
+  <details open><summary>app.js</summary><pre data-arquivo="app.js">carregando…</pre></details>
+  <details><summary>supabase-config.json</summary><pre data-arquivo="supabase-config.json">carregando…</pre></details>
+  <details><summary>schema.sql</summary><pre data-arquivo="schema.sql">carregando…</pre></details>
+  <details><summary>package.json</summary><pre data-arquivo="package.json">carregando…</pre></details>
+</main>
+<footer><div class="wrap">Horizonte Distribuidora é fictícia. Chaves, pedidos e clientes desta página são falsos.</div></footer>
+<a class="selo-lab" href="../../">Isto é um laboratório de estudo</a>
+<script src="app.js"></script>
+<script src="../../assets/lab.js"></script>
+</body>
+</html>

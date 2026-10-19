@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Painel do agente Hora — indicadores</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono&family=Sora:wght@600;700&display=swap">
+<link rel="stylesheet" href="../../assets/lab.css">
+<style>
+.barras{display:flex;align-items:flex-end;gap:8px;height:200px;padding:10px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+.barra{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;min-width:0}
+.barra i{display:block;width:100%;background:var(--amb);border-radius:6px 6px 0 0}
+.barra span{font-size:.7rem;color:var(--mut);margin-top:4px;white-space:nowrap}
+.barra em{font-style:normal;font-size:.75rem;margin-bottom:2px}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="marca" href="../../">Horizonte <b>Distribuidora</b></a>
+  <nav class="top"><a href="../../#pecas">Todas as peças</a></nav>
+</div></header>
+<main class="wrap">
+  <span class="chip">Peça · Painel de indicadores</span>
+  <h1>Agente Hora — resultados</h1>
+  <p class="txt">O painel que o Carlos abre toda segunda. Ele vai decidir em novembro se amplia o agente para o financeiro (cobrança) e pergunta: "o agente ajudou ou não?"</p>
+
+  <div class="kpis" id="kpis"></div>
+
+  <h2>Atendimentos do agente por semana</h2>
+  <div class="barras" id="barras" role="img" aria-label="Atendimentos do agente por semana, de setembro a outubro de 2026"></div>
+
+  <h2>Arquivo de dados</h2>
+  <div class="arquivos"><a href="indicadores.json">indicadores.json</a></div>
+  <details><summary>indicadores.json</summary><pre data-arquivo="indicadores.json">carregando…</pre></details>
+</main>
+<footer><div class="wrap">Horizonte Distribuidora é fictícia. Os números são inventados para estudo.</div></footer>
+<a class="selo-lab" href="../../">Isto é um laboratório de estudo</a>
+<script src="../../assets/lab.js"></script>
+<script>
+fetch('indicadores.json').then(function(r){return r.json();}).then(function(d){
+  var s=d.semanas, u=s[s.length-1], tot=s.reduce(function(a,x){return a+x.atendimentos_agente;},0);
+  var ped=s.reduce(function(a,x){return a+x.pedidos_fechados;},0);
+  document.getElementById('kpis').innerHTML=
+    '<div class="kpi"><b>'+tot.toLocaleString('pt-BR')+'</b>atendimentos em 7 semanas</div>'+
+    '<div class="kpi"><b>'+ped.toLocaleString('pt-BR')+'</b>pedidos fechados pelo agente</div>'+
+    '<div class="kpi"><b>'+String(u.satisfacao_media).replace('.',',')+' ★</b>satisfação média</div>'+
+    '<div class="kpi"><b>'+u.tempo_resposta_s+' s</b>tempo médio de resposta</div>';
+  var max=Math.max.apply(null,s.map(function(x){return x.atendimentos_agente;}));
+  document.getElementById('barras').innerHTML=s.map(function(x){
+    return '<div class="barra"><em>'+x.atendimentos_agente+'</em><i style="height:'+Math.round(x.atendimentos_agente/max*80)+'%"></i><span>'+x.semana.slice(8,10)+'/'+x.semana.slice(5,7)+'</span></div>';
+  }).join('');
+});
+</script>
+</body>
+</html>

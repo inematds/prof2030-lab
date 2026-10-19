@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Horizonte Pedidos — Admin</title>
+<!-- TODO (Rafael): colocar tela de login aqui depois. Por enquanto ninguém sabe o endereço. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono&family=Sora:wght@600;700&display=swap">
+<link rel="stylesheet" href="../../assets/lab.css">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="marca" href="../../">Horizonte <b>Distribuidora</b></a>
+  <nav class="top"><a href="./">Voltar ao app</a><a href="../../#pecas">Todas as peças</a></nav>
+</div></header>
+<main class="wrap">
+  <div class="app">
+    <div class="app-bar"><span>Horizonte Pedidos · Painel administrativo</span><span>Usuário: admin</span></div>
+    <div class="app-corpo">
+      <h2 style="color:#1a1a22;margin-top:0">Administração</h2>
+      <div class="grade">
+        <div style="border:1px solid #e1e3ea;border-radius:12px;padding:12px"><h3 style="color:#1a1a22">Pedidos</h3><p>Alterar status, preço e desconto de qualquer pedido.</p><button class="btn" type="button" onclick="labAviso()">Editar pedidos</button></div>
+        <div style="border:1px solid #e1e3ea;border-radius:12px;padding:12px"><h3 style="color:#1a1a22">Clientes</h3><p>Baixar a base completa (razão social, CNPJ, telefone, e-mail).</p><button class="btn" type="button" onclick="labAviso()">Exportar clientes.csv</button></div>
+        <div style="border:1px solid #e1e3ea;border-radius:12px;padding:12px"><h3 style="color:#1a1a22">Limpeza</h3><p>Apagar pedidos cancelados e de teste.</p><button class="btn" type="button" onclick="labAviso()">Apagar pedidos</button></div>
+      </div>
+      <p id="lab-msg" style="font-size:.9rem;color:#5b5b68" aria-live="polite"></p>
+    </div>
+  </div>
+  <p class="txt mut" style="margin-top:18px">Endereço desta tela: <code>pecas/app-pedidos/admin.html</code></p>
+</main>
+<a class="selo-lab" href="../../">Isto é um laboratório de estudo</a>
+<script>
+function labAviso(){document.getElementById('lab-msg').textContent='Laboratório: nenhum botão faz nada de verdade.';}
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agente Hora — WhatsApp de vendas</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono&family=Sora:wght@600;700&display=swap">
+<link rel="stylesheet" href="../../assets/lab.css">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="marca" href="../../">Horizonte <b>Distribuidora</b></a>
+  <nav class="top"><a href="../../#pecas">Todas as peças</a></nav>
+</div></header>
+<main class="wrap">
+  <span class="chip">Peça · Agente de WhatsApp</span>
+  <h1>Agente "Hora"</h1>
+  <p class="txt">Vendedor automático no WhatsApp desde julho. O Carlos adora: "vende de madrugada e não pede comissão". A Juliana exportou as conversas da semana a pedido do financeiro.</p>
+
+  <h2>Conversas da semana</h2>
+  <div id="conversas" class="grade"><p class="mut">carregando conversas…</p></div>
+
+  <h2>Arquivos do agente</h2>
+  <div class="arquivos">
+    <a href="prompt-do-agente.md">prompt-do-agente.md</a><a href="agente-config.json">agente-config.json</a><a href="conversas.json">conversas.json</a>
+  </div>
+  <details open><summary>prompt-do-agente.md</summary><pre data-arquivo="prompt-do-agente.md">carregando…</pre></details>
+  <details><summary>agente-config.json</summary><pre data-arquivo="agente-config.json">carregando…</pre></details>
+</main>
+<footer><div class="wrap">Horizonte Distribuidora é fictícia. Conversas, clientes e números desta página são inventados.</div></footer>
+<a class="selo-lab" href="../../">Isto é um laboratório de estudo</a>
+<script src="../../assets/lab.js"></script>
+<script>
+(function(){
+  var alvo=document.getElementById('conversas');
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  fetch('conversas.json').then(function(r){return r.json();}).then(function(d){
+    alvo.innerHTML=d.conversas.map(function(c){
+      return '<div><h3>'+esc(c.cliente)+' <span class="mut" style="font-size:.85rem">· '+esc(c.data)+'</span></h3><div class="zap">'+
+        c.mensagens.map(function(m){
+          return '<div class="msg '+(m.de==='agente'?'bot':'cli')+'">'+esc(m.texto)+'<small>'+esc(m.hora)+(m.acao?' · ação: '+esc(m.acao):'')+'</small></div>';
+        }).join('')+'</div></div>';
+    }).join('');
+  }).catch(function(){alvo.innerHTML='<p>Abra o arquivo <a href="conversas.json">conversas.json</a>.</p>';});
+})();
+</script>
+</body>
+</html>
