@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Agente Hora — WhatsApp de ventas</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=JetBrains+Mono&amp;family=Sora:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="../../../assets/lab.css" rel="stylesheet"/>
+<link href="https://inematds.github.io/prof2030-lab/pecas/agente-whatsapp/" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/prof2030-lab/en/pecas/agente-whatsapp/" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/prof2030-lab/es/pecas/agente-whatsapp/" hreflang="es" rel="alternate"/></head>
+<body><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../pecas/agente-whatsapp/" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="../../../en/pecas/agente-whatsapp/" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="./" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">ES</a></div>
+<header class="top"><div class="wrap">
+<a class="marca" href="../../">Horizonte <b>Distribuidora</b></a>
+<nav class="top"><a href="../../#pecas">Todas las piezas</a></nav>
+</div></header>
+<main class="wrap">
+<span class="chip">Pieza · Agente de WhatsApp</span>
+<h1>Agente "Hora"</h1>
+<p class="txt">Vendedor automático en WhatsApp desde julio. A Carlos le encanta: "vende de madrugada y no pide comisión". Juliana exportó las conversaciones de la semana a pedido de finanzas.</p>
+<h2>Conversaciones de la semana</h2>
+<div class="grade" id="conversas"><p class="mut">cargando conversaciones…</p></div>
+<h2>Archivos del agente</h2>
+<div class="arquivos">
+<a href="../../../pecas/agente-whatsapp/prompt-do-agente.md">prompt-do-agente.md</a><a href="../../../pecas/agente-whatsapp/agente-config.json">agente-config.json</a><a href="../../../pecas/agente-whatsapp/conversas.json">conversas.json</a>
+</div>
+<details open=""><summary>prompt-do-agente.md</summary><pre data-arquivo="../../../pecas/agente-whatsapp/prompt-do-agente.md">cargando…</pre></details>
+<details><summary>agente-config.json</summary><pre data-arquivo="../../../pecas/agente-whatsapp/agente-config.json">cargando…</pre></details>
+</main>
+<footer><div class="wrap">Horizonte Distribuidora es ficticia. Las conversaciones, clientes y números de esta página son inventados.</div></footer>
+<a class="selo-lab" href="../../">Esto es un laboratorio de estudio</a>
+<script src="../../../assets/lab.js"></script>
+<script>
+(function(){
+  var alvo=document.getElementById('conversas');
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  fetch('../../../pecas/agente-whatsapp/conversas.json').then(function(r){return r.json();}).then(function(d){
+    alvo.innerHTML=d.conversas.map(function(c){
+      return '<div><h3>'+esc(c.cliente)+' <span class="mut" style="font-size:.85rem">· '+esc(c.data)+'</span></h3><div class="zap">'+
+        c.mensagens.map(function(m){
+          return '<div class="msg '+(m.de==='agente'?'bot':'cli')+'">'+esc(m.texto)+'<small>'+esc(m.hora)+(m.acao?' · acción: '+esc(m.acao):'')+'</small></div>';
+        }).join('')+'</div></div>';
+    }).join('');
+  }).catch(function(){alvo.innerHTML='<p>Abra el archivo <a href="../../../pecas/agente-whatsapp/conversas.json">conversas.json</a>.</p>';});
+})();
+</script>
+</body>
+</html>

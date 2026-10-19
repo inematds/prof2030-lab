@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Horizonte Pedidos — Admin</title>
+<!-- TODO (Rafael): colocar tela de login aqui depois. Por enquanto ninguém sabe o endereço. -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=JetBrains+Mono&amp;family=Sora:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="../../../assets/lab.css" rel="stylesheet"/>
+<link href="https://inematds.github.io/prof2030-lab/pecas/app-pedidos/admin.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/prof2030-lab/en/pecas/app-pedidos/admin.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/prof2030-lab/es/pecas/app-pedidos/admin.html" hreflang="es" rel="alternate"/></head>
+<body><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../pecas/app-pedidos/admin.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="../../../en/pecas/app-pedidos/admin.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="admin.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">ES</a></div>
+<header class="top"><div class="wrap">
+<a class="marca" href="../../">Horizonte <b>Distribuidora</b></a>
+<nav class="top"><a href="./">Volver a la app</a><a href="../../#pecas">Todas las piezas</a></nav>
+</div></header>
+<main class="wrap">
+<div class="app">
+<div class="app-bar"><span>Horizonte Pedidos · Panel administrativo</span><span>Usuario: admin</span></div>
+<div class="app-corpo">
+<h2 style="color:#1a1a22;margin-top:0">Administración</h2>
+<div class="grade">
+<div style="border:1px solid #e1e3ea;border-radius:12px;padding:12px"><h3 style="color:#1a1a22">Pedidos</h3><p>Cambiar estado, precio y descuento de cualquier pedido.</p><button class="btn" onclick="labAviso()" type="button">Editar pedidos</button></div>
+<div style="border:1px solid #e1e3ea;border-radius:12px;padding:12px"><h3 style="color:#1a1a22">Clientes</h3><p>Descargar la base completa (razón social, CNPJ, teléfono, correo electrónico).</p><button class="btn" onclick="labAviso()" type="button">Exportar clientes.csv</button></div>
+<div style="border:1px solid #e1e3ea;border-radius:12px;padding:12px"><h3 style="color:#1a1a22">Limpieza</h3><p>Borrar pedidos cancelados y de prueba.</p><button class="btn" onclick="labAviso()" type="button">Borrar pedidos</button></div>
+</div>
+<p aria-live="polite" id="lab-msg" style="font-size:.9rem;color:#5b5b68"></p>
+</div>
+</div>
+<p class="txt mut" style="margin-top:18px">Dirección de esta pantalla: <code>pecas/app-pedidos/admin.html</code></p>
+</main>
+<a class="selo-lab" href="../../">Esto es un laboratorio de estudio</a>
+<script>
+function labAviso(){document.getElementById('lab-msg').textContent='Laboratorio: ningún botón hace nada de verdad.';}
+</script>
+</body>
+</html>

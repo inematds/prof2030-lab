@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Hora agent dashboard — metrics</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=JetBrains+Mono&amp;family=Sora:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="../../../assets/lab.css" rel="stylesheet"/>
+<style>
+.barras{display:flex;align-items:flex-end;gap:8px;height:200px;padding:10px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+.barra{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;min-width:0}
+.barra i{display:block;width:100%;background:var(--amb);border-radius:6px 6px 0 0}
+.barra span{font-size:.7rem;color:var(--mut);margin-top:4px;white-space:nowrap}
+.barra em{font-style:normal;font-size:.75rem;margin-bottom:2px}
+</style>
+<link href="https://inematds.github.io/prof2030-lab/pecas/painel/" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/prof2030-lab/en/pecas/painel/" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/prof2030-lab/es/pecas/painel/" hreflang="es" rel="alternate"/></head>
+<body><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../pecas/painel/" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="./" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">EN</a><a href="../../../es/pecas/painel/" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">ES</a></div>
+<header class="top"><div class="wrap">
+<a class="marca" href="../../">Horizonte <b>Distributor</b></a>
+<nav class="top"><a href="../../#pecas">All pieces</a></nav>
+</div></header>
+<main class="wrap">
+<span class="chip">Piece · Metrics Dashboard</span>
+<h1>Hora agent — results</h1>
+<p class="txt">The dashboard Carlos opens every Monday. He will decide in November whether to expand the agent to finance (collections) and asks: "did the agent help or not?"</p>
+<div class="kpis" id="kpis"></div>
+<h2>Agent support interactions per week</h2>
+<div aria-label="Agent support interactions per week, from September to October 2026" class="barras" id="barras" role="img"></div>
+<h2>Data file</h2>
+<div class="arquivos"><a href="../../../pecas/painel/indicadores.json">indicadores.json</a></div>
+<details><summary>indicadores.json</summary><pre data-arquivo="../../../pecas/painel/indicadores.json">loading…</pre></details>
+</main>
+<footer><div class="wrap">Horizonte Distribuidora is fictional. The numbers are made up for study.</div></footer>
+<a class="selo-lab" href="../../">This is a study lab</a>
+<script src="../../../assets/lab.js"></script>
+<script>
+fetch('../../../pecas/painel/indicadores.json').then(function(r){return r.json();}).then(function(d){
+  var s=d.semanas, u=s[s.length-1], tot=s.reduce(function(a,x){return a+x.atendimentos_agente;},0);
+  var ped=s.reduce(function(a,x){return a+x.pedidos_fechados;},0);
+  document.getElementById('kpis').innerHTML=
+    '<div class="kpi"><b>'+tot.toLocaleString('en-US')+'</b>conversations in 7 weeks</div>'+
+    '<div class="kpi"><b>'+ped.toLocaleString('en-US')+'</b>orders closed by the agent</div>'+
+    '<div class="kpi"><b>'+String(u.satisfacao_media)+' ★</b>average satisfaction</div>'+
+    '<div class="kpi"><b>'+u.tempo_resposta_s+' s</b>average response time</div>';
+  var max=Math.max.apply(null,s.map(function(x){return x.atendimentos_agente;}));
+  document.getElementById('barras').innerHTML=s.map(function(x){
+    return '<div class="barra"><em>'+x.atendimentos_agente+'</em><i style="height:'+Math.round(x.atendimentos_agente/max*80)+'%"></i><span>'+x.semana.slice(8,10)+'/'+x.semana.slice(5,7)+'</span></div>';
+  }).join('');
+});
+</script>
+</body>
+</html>

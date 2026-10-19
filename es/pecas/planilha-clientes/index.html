@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Clientes Horizonte 2026 — hoja de cálculo</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=JetBrains+Mono&amp;family=Sora:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="../../../assets/lab.css" rel="stylesheet"/>
+<link href="https://inematds.github.io/prof2030-lab/pecas/planilha-clientes/" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/prof2030-lab/en/pecas/planilha-clientes/" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/prof2030-lab/es/pecas/planilha-clientes/" hreflang="es" rel="alternate"/></head>
+<body><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../pecas/planilha-clientes/" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="../../../en/pecas/planilha-clientes/" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="./" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">ES</a></div>
+<header class="top"><div class="wrap">
+<a class="marca" href="../../">Horizonte <b>Distribuidora</b></a>
+<nav class="top"><a href="../../#pecas">Todas las piezas</a></nav>
+</div></header>
+<main class="wrap">
+<span class="chip">Pieza · Planilla de clientes</span>
+<h1>Clientes Horizonte 2026</h1>
+<p class="txt">La base que Patrícia mantiene. El equipo de ventas la consulta desde el celular en la calle, y el agente Hora la usa para encontrar el registro. "Es práctico: mando el enlace y listo."</p>
+<div class="app">
+<div class="app-bar"><span>📄 Clientes Horizonte 2026</span><button class="btn" id="btn-compart" style="padding:6px 12px" type="button">Compartir</button></div>
+<div class="app-corpo">
+<div hidden="" id="caixa-compart" style="border:1px solid #e1e3ea;border-radius:12px;padding:12px;margin-bottom:12px;background:#fff">
+<strong>Compartir "Clientes Horizonte 2026"</strong>
+<p style="margin:.4em 0">Acceso general: <strong>🌐 Cualquier persona con el enlace</strong> · puede <strong>ver</strong></p>
+<p style="margin:.4em 0;font-size:.9rem">Descarga, copia e impresión: permitidas</p>
+<p style="margin:.4em 0;font-size:.9rem;color:#5b5b68">Link: https://planilhas.exemplo.invalid/d/FAKE-EXEMPLO-clientes-horizonte</p>
+</div>
+<div class="tab-wrap" id="tabela"><p style="padding:10px">cargando…</p></div>
+<p style="font-size:.85rem;color:#5b5b68">CPF y teléfonos ficticios e inválidos, solo para estudio.</p>
+</div>
+</div>
+<h2>Archivos</h2>
+<div class="arquivos"><a href="../../../pecas/planilha-clientes/clientes.csv">clientes.csv</a><a href="../../../pecas/planilha-clientes/compartilhamento.json">compartilhamento.json</a></div>
+<details><summary>compartilhamento.json</summary><pre data-arquivo="../../../pecas/planilha-clientes/compartilhamento.json">cargando…</pre></details>
+</main>
+<footer><div class="wrap">Horizonte Distribuidora es ficticia. Ningún dato de esta planilla pertenece a una persona real.</div></footer>
+<a class="selo-lab" href="../../">Esto es un laboratorio de estudio</a>
+<script src="../../../assets/lab.js"></script>
+<script>
+(function(){
+  document.getElementById('btn-compart').addEventListener('click',function(){var c=document.getElementById('caixa-compart');c.hidden=!c.hidden;});
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  fetch('../../../pecas/planilha-clientes/clientes.csv').then(function(r){return r.text();}).then(function(t){
+    var l=t.trim().split('\n').map(function(x){return x.split(',');});
+    document.getElementById('tabela').innerHTML='<table><thead><tr>'+l[0].map(function(h){return '<th>'+esc(h)+'</th>';}).join('')+'</tr></thead><tbody>'+
+      l.slice(1).map(function(r){return '<tr>'+r.map(function(c){return '<td>'+esc(c)+'</td>';}).join('')+'</tr>';}).join('')+'</tbody></table>';
+  }).catch(function(){document.getElementById('tabela').innerHTML='<p>Abra <a href="../../../pecas/planilha-clientes/clientes.csv">clientes.csv</a>.</p>';});
+})();
+</script>
+</body>
+</html>

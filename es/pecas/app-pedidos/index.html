@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Horizonte Pedidos — app de pedidos</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=JetBrains+Mono&amp;family=Sora:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="../../../assets/lab.css" rel="stylesheet"/>
+<link href="https://inematds.github.io/prof2030-lab/pecas/app-pedidos/" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/prof2030-lab/en/pecas/app-pedidos/" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/prof2030-lab/es/pecas/app-pedidos/" hreflang="es" rel="alternate"/></head>
+<body><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../pecas/app-pedidos/" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="../../../en/pecas/app-pedidos/" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="./" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">ES</a></div>
+<header class="top"><div class="wrap">
+<a class="marca" href="../../">Horizonte <b>Distribuidora</b></a>
+<nav class="top"><a href="../../#pecas">Todas las piezas</a><a href="admin.html">admin.html</a></nav>
+</div></header>
+<main class="wrap">
+<span class="chip">Pieza · App de pedidos</span>
+<h1>Horizonte Pedidos</h1>
+<p class="txt">App web que Rafael armó en un fin de semana con ayuda de IA. El cliente entra, ve sus pedidos y vuelve a pedir. La IA sugiere productos en el carrito. Está en línea desde hace 3 meses y "nunca dio problemas".</p>
+<h2>Pantalla del cliente</h2>
+<div class="app">
+<div class="app-bar"><span>Horizonte Pedidos</span><span>Hola, Padaria Pão Dourado · <a href="#" onclick="return false" style="color:#fde68a">Salir</a></span></div>
+<div class="app-corpo">
+<h3 style="color:#1a1a22">Mis pedidos (<span id="total-pedidos">…</span>)</h3>
+<div class="tab-wrap"><table>
+<thead><tr><th>Nº</th><th>Cliente</th><th>Ciudad</th><th>Total</th><th>Estado</th></tr></thead>
+<tbody id="lista-pedidos"></tbody>
+</table></div>
+<p style="font-size:.85rem;color:#5b5b68">Datos de ejemplo. Ningún cliente real.</p>
+</div>
+</div>
+<h2>Archivos del proyecto</h2>
+<p class="txt mut">Todo lo que va al navegador del cliente puede ser leído por cualquier persona (clic derecho → "Ver código fuente" o F12). Los archivos están abiertos aquí como los vería un auditor.</p>
+<div class="arquivos">
+<a href="../../../pecas/app-pedidos/app.js">app.js</a><a href="../../../pecas/app-pedidos/supabase-config.json">supabase-config.json</a><a href="../../../pecas/app-pedidos/schema.sql">schema.sql</a><a href="../../../pecas/app-pedidos/package.json">package.json</a><a href="admin.html">admin.html</a>
+</div>
+<details open=""><summary>app.js</summary><pre data-arquivo="../../../pecas/app-pedidos/app.js">cargando…</pre></details>
+<details><summary>supabase-config.json</summary><pre data-arquivo="../../../pecas/app-pedidos/supabase-config.json">cargando…</pre></details>
+<details><summary>schema.sql</summary><pre data-arquivo="../../../pecas/app-pedidos/schema.sql">cargando…</pre></details>
+<details><summary>package.json</summary><pre data-arquivo="../../../pecas/app-pedidos/package.json">cargando…</pre></details>
+</main>
+<footer><div class="wrap">Horizonte Distribuidora es ficticia. Las claves, pedidos y clientes de esta página son falsos.</div></footer>
+<a class="selo-lab" href="../../">Esto es un laboratorio de estudio</a>
+<script src="../../../pecas/app-pedidos/app.js"></script>
+<script src="../../../assets/lab.js"></script>
+</body>
+</html>
